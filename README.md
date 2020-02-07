@@ -1,2 +1,2 @@
-# Black-Jack-Game-
-Developed a GUI based Black Jack Game using Pygame
+# Blackjack Game
+Developed a GUI based Blackjack Game using Pygame
