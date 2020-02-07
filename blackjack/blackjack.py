@@ -404,7 +404,7 @@ def start():
         Quit_loop()
         display_image(front,0,0)
         display_image(start_image,500,100)
-        TextSurf, TextRect = text_objects("A game developed and maintained by Sarvagya and Prabhjot", largeText,white)
+        TextSurf, TextRect = text_objects("A game developed and maintained by Maitree Rawat", largeText,white)
         TextRect.center = (650,400)
         gameDisplay.blit(TextSurf, TextRect)  
         button("GO!",400,450,100,50,black, red,second)
