@@ -3,11 +3,14 @@
 ##cytpe: ctypes is a foreign function library for Python. It provides C compatible data types, and allows calling functions in DLLs or shared libraries.
 ##       It can be used to wrap these libraries in pure Python.
 
+import ctypes, os, pygame, random, sys
 
-import pygame
-import time
-import random
-import ctypes 
+# Find the root working directory. We need this for PyInstaller to work.
+# Adapted from https://stackoverflow.com/a/50034378/2941352
+if getattr(sys, 'frozen', False):
+    root_dir = getattr(sys, '_MEIPASS', os.path.dirname(sys.executable)) # Root directory of temporary directory (when running PyInstaller binary)
+else:
+    root_dir = os.getcwd() + '\\' # Root directory of this Python script (when running normally)
 
 pygame.init()          #initialize all imported pygame modules
 
@@ -41,14 +44,14 @@ green = (31,101,47)
 
 ###Images
 
-icon = pygame.image.load('images\\icon.png')
-start_image = pygame.image.load('images\\start_image.gif')
-rule_image = pygame.image.load('images\\rules.png')
-arena = pygame.image.load('images\\arena3.png')
-blackjack_dealer = pygame.image.load('images\\blackjack_dealer.png')
-blackjack_user = pygame.image.load('images\\blackjack_user.png')
-money = pygame.image.load('images\\money.png')
-front = pygame.image.load('images\\wallpaper.jpg')
+icon = pygame.image.load(os.path.join(root_dir, 'images\\icon.png'))
+start_image = pygame.image.load(os.path.join(root_dir, 'images\\start_image.gif'))
+rule_image = pygame.image.load(os.path.join(root_dir, 'images\\rules.png'))
+arena = pygame.image.load(os.path.join(root_dir, 'images\\arena3.png'))
+blackjack_dealer = pygame.image.load(os.path.join(root_dir, 'images\\blackjack_dealer.png'))
+blackjack_user = pygame.image.load(os.path.join(root_dir, 'images\\blackjack_user.png'))
+money = pygame.image.load(os.path.join(root_dir, 'images\\money.png'))
+front = pygame.image.load(os.path.join(root_dir, 'images\\wallpaper.jpg'))
 front = pygame.transform.scale(front, (1300,800))
 
 ###Fonts
@@ -129,7 +132,7 @@ def select_back():
     return str(random.randrange(1,7))+'_back'
 
 def cards(c):
-    card = pygame.image.load('cards\\'+c+'.png')
+    card = pygame.image.load(os.path.join(root_dir, 'cards\\'+c+'.png'))
     card = pygame.transform.scale(card, (80,100))
     return card
 
