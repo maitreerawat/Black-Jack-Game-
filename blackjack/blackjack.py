@@ -3,13 +3,7 @@
 ##cytpe: ctypes is a foreign function library for Python. It provides C compatible data types, and allows calling functions in DLLs or shared libraries.
 ##       It can be used to wrap these libraries in pure Python.
 
-
-import pygame
-import time
-import random
-import ctypes
-import os
-import sys
+import ctypes, os, pygame, random, sys
 
 # Find the root working directory. We need this for PyInstaller to work.
 # Adapted from https://stackoverflow.com/a/50034378/2941352
