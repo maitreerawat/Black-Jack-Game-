@@ -77,7 +77,7 @@ def Quit_loop():
                 Quit()               
 def Quit():
     pygame.quit()
-    quit()
+    sys.exit()
 
 def text_objects(text, font, color):
     #This creates a new Surface with the specified text rendered on it(create an image (Surface) of the text, then blit this image onto another Surface).
